@@ -1,0 +1,526 @@
+<ref *1> WSDL {
+  content: '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<wsdl:definitions targetNamespace="http://www.adonix.com/WSS" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wss="http://www.adonix.com/WSS" xmlns:intf="http://www.adonix.com/WSS"\n' +
+    '\txmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">\t<!--WSDL created by Apache Axis version: 1.4 Built on Apr 22, 2006 (06:55:48 PDT) -->\n' +
+    '\t<wsdl:types>\n' +
+    '\t\t<schema targetNamespace="http://www.adonix.com/WSS" xmlns="http://www.w3.org/2001/XMLSchema">\n' +
+    '\t\t\t<import namespace="http://schemas.xmlsoap.org/soap/encoding/" />\n' +
+    '\t\t\t<complexType name="CAdxCallContext">\n' +
+    '\t\t\t\t<sequence>\n' +
+    '\t\t\t\t\t<element name="codeLang" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t\t<element name="poolAlias" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t\t<element name="poolId" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t\t<element name="requestConfig" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t</sequence>\n' +
+    '\t\t\t</complexType>\n' +
+    '\t\t\t<complexType name="CAdxMessage">\n' +
+    '\t\t\t\t<sequence>\n' +
+    '\t\t\t\t\t<element name="message" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t\t<element name="type" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t</sequence>\n' +
+    '\t\t\t</complexType>\n' +
+    '\t\t\t<complexType name="ArrayOfCAdxMessage">\n' +
+    '\t\t\t\t<complexContent>\n' +
+    '\t\t\t\t\t<restriction base="soapenc:Array">\n' +
+    '\t\t\t\t\t\t<attribute ref="soapenc:arrayType" wsdl:arrayType="wss:CAdxMessage[]" />\n' +
+    '\t\t\t\t\t</restriction>\n' +
+    '\t\t\t\t</complexContent>\n' +
+    '\t\t\t</complexType>\n' +
+    '\t\t\t<complexType name="CAdxTechnicalInfos">\n' +
+    '\t\t\t\t<sequence>\n' +
+    '\t\t\t\t\t<element name="busy" type="xsd:boolean" />\n' +
+    '\t\t\t\t\t<element name="changeLanguage" type="xsd:boolean" />\n' +
+    '\t\t\t\t\t<element name="changeUserId" type="xsd:boolean" />\n' +
+    '\t\t\t\t\t<element name="flushAdx" type="xsd:boolean" />\n' +
+    '\t\t\t\t\t<element name="loadWebsDuration" type="xsd:double" />\n' +
+    '\t\t\t\t\t<element name="nbDistributionCycle" type="xsd:int" />\n' +
+    '\t\t\t\t\t<element name="poolDistribDuration" type="xsd:double" />\n' +
+    '\t\t\t\t\t<element name="poolEntryIdx" type="xsd:int" />\n' +
+    '\t\t\t\t\t<element name="poolExecDuration" type="xsd:double" />\n' +
+    '\t\t\t\t\t<element name="poolRequestDuration" type="xsd:double" />\n' +
+    '\t\t\t\t\t<element name="poolWaitDuration" type="xsd:double" />\n' +
+    '\t\t\t\t\t<element name="processReport" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t\t<element name="processReportSize" type="xsd:int" />\n' +
+    '\t\t\t\t\t<element name="reloadWebs" type="xsd:boolean" />\n' +
+    '\t\t\t\t\t<element name="resumitAfterDBOpen" type="xsd:boolean" />\n' +
+    '\t\t\t\t\t<element name="rowInDistribStack" type="xsd:int" />\n' +
+    '\t\t\t\t\t<element name="totalDuration" type="xsd:double" />\n' +
+    '\t\t\t\t\t<element name="traceRequest" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t\t<element name="traceRequestSize" type="xsd:int" />\n' +
+    '\t\t\t\t</sequence>\n' +
+    '\t\t\t</complexType>\n' +
+    '\t\t\t<complexType name="CAdxResultXml">\n' +
+    '\t\t\t\t<sequence>\n' +
+    '\t\t\t\t\t<element name="messages" nillable="true" type="wss:ArrayOfCAdxMessage" />\n' +
+    '\t\t\t\t\t<element name="resultXml" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t\t<element name="status" type="xsd:int" />\n' +
+    '\t\t\t\t\t<element name="technicalInfos" nillable="true" type="wss:CAdxTechnicalInfos" />\n' +
+    '\t\t\t\t</sequence>\n' +
+    '\t\t\t</complexType>\n' +
+    '\t\t\t<complexType name="CAdxParamKeyValue">\n' +
+    '\t\t\t\t<sequence>\n' +
+    '\t\t\t\t\t<element name="key" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t\t<element name="value" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t</sequence>\n' +
+    '\t\t\t</complexType>\n' +
+    '\t\t\t<complexType name="ArrayOfCAdxParamKeyValue">\n' +
+    '\t\t\t\t<complexContent>\n' +
+    '\t\t\t\t\t<restriction base="soapenc:Array">\n' +
+    '\t\t\t\t\t\t<attribute ref="soapenc:arrayType" wsdl:arrayType="wss:CAdxParamKeyValue[]" />\n' +
+    '\t\t\t\t\t</restriction>\n' +
+    '\t\t\t\t</complexContent>\n' +
+    '\t\t\t</complexType>\n' +
+    '\t\t\t<complexType name="ArrayOf_xsd_string">\n' +
+    '\t\t\t\t<complexContent>\n' +
+    '\t\t\t\t\t<restriction base="soapenc:Array">\n' +
+    '\t\t\t\t\t\t<attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:string[]" />\n' +
+    '\t\t\t\t\t</restriction>\n' +
+    '\t\t\t\t</complexContent>\n' +
+    '\t\t\t</complexType>\n' +
+    '\t\t</schema>\n' +
+    '\t</wsdl:types>\n' +
+    '\t<wsdl:message name="queryRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="objectKeys" type="wss:ArrayOfCAdxParamKeyValue" />\n' +
+    '\t\t<wsdl:part name="listSize" type="xsd:int" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="insertLinesResponse">\n' +
+    '\t\t<wsdl:part name="insertLinesReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="getDataXmlSchemaResponse">\n' +
+    '\t\t<wsdl:part name="getDataXmlSchemaReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="actionObjectKeysResponse">\n' +
+    '\t\t<wsdl:part name="actionObjectKeysReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="deleteRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="objectKeys" type="wss:ArrayOfCAdxParamKeyValue" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="runRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="inputXml" type="xsd:string" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="runResponse">\n' +
+    '\t\t<wsdl:part name="runReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="queryResponse">\n' +
+    '\t\t<wsdl:part name="queryReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="insertLinesRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="objectKeys" type="wss:ArrayOfCAdxParamKeyValue" />\n' +
+    '\t\t<wsdl:part name="blocKey" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="lineKey" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="lineXml" type="xsd:string" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="getDescriptionResponse">\n' +
+    '\t\t<wsdl:part name="getDescriptionReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="deleteLinesRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="objectKeys" type="wss:ArrayOfCAdxParamKeyValue" />\n' +
+    '\t\t<wsdl:part name="blocKey" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="lineKeys" type="wss:ArrayOf_xsd_string" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="getDataXmlSchemaRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="actionObjectRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="actionCode" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="objectXml" type="xsd:string" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="modifyRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="objectKeys" type="wss:ArrayOfCAdxParamKeyValue" />\n' +
+    '\t\t<wsdl:part name="objectXml" type="xsd:string" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="saveResponse">\n' +
+    '\t\t<wsdl:part name="saveReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="getDescriptionRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="actionObjectKeysRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="actionCode" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="objectKeys" type="wss:ArrayOfCAdxParamKeyValue" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="deleteLinesResponse">\n' +
+    '\t\t<wsdl:part name="deleteLinesReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="actionObjectResponse">\n' +
+    '\t\t<wsdl:part name="actionObjectReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="deleteResponse">\n' +
+    '\t\t<wsdl:part name="deleteReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="saveRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="objectXml" type="xsd:string" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="readRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="objectKeys" type="wss:ArrayOfCAdxParamKeyValue" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="readResponse">\n' +
+    '\t\t<wsdl:part name="readReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="modifyResponse">\n' +
+    '\t\t<wsdl:part name="modifyReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:portType name="CAdxWebServiceXmlCC">\n' +
+    '\t\t<wsdl:operation name="run" parameterOrder="callContext publicName inputXml">\n' +
+    '\t\t\t<wsdl:input message="wss:runRequest" name="runRequest" />\n' +
+    '\t\t\t<wsdl:output message="wss:runResponse" name="runResponse" />\n' +
+    '\t\t\t<wsdl:documentation>Run X3 sub program</wsdl:documentation>\n' +
+    '\t\t</wsdl:operation>\n' +
+    '\t\t<wsdl:operation name="save" parameterOrder="callContext publicName objectXml">\n' +
+    '\t\t\t<wsdl:input message="wss:saveRequest" name="saveRequest" />\n' +
+    '\t\t\t<wsdl:output message="wss:saveResponse" name="saveResponse" />\n' +
+    '\t\t\t<wsdl:documentation>Create X3 object</wsdl:documentation>\n' +
+    '\t\t</wsdl:operation>\n' +
+    '\t\t<wsdl:operation name="delete" parameterOrder="callContext publicName objectKeys">\n' +
+    '\t\t\t<wsdl:input message="wss:deleteRequest" name="deleteRequest" />\n' +
+    '\t\t\t<wsdl:output message="wss:deleteResponse" name="deleteResponse" />\n' +
+    '\t\t\t<wsdl:documentation>Delete X3 object</wsdl:documentation>\n' +
+    '\t\t</wsdl:operation>\n' +
+    '\t\t<wsdl:operation name="read" parameterOrder="callContext publicName objectKeys">\n' +
+    '\t\t\t<wsdl:input message="wss:readRequest" name="readRequest" />\n' +
+    '\t\t\t<wsdl:output message="wss:readResponse" name="readResponse" />\n' +
+    '\t\t\t<wsdl:documentation>Read X3 object</wsdl:documentation>\n' +
+    '\t\t</wsdl:operation>\n' +
+    '\t\t<wsdl:operation name="query" parameterOrder="callContext publicName objectKeys listSize">\n' +
+    '\t\t\t<wsdl:input message="wss:queryRequest" name="queryRequest" />\n' +
+    '\t\t\t<wsdl:output message="wss:queryResponse" name="queryResponse" />\n' +
+    '\t\t\t<wsdl:documentation>Get X3 objects list</wsdl:documentation>\n' +
+    '\t\t</wsdl:operation>\n' +
+    '\t\t<wsdl:operation name="getDescription'... 8951 more characters,
+  uri: 'http://srvx3v12h.formula.it:8124/soap-wsdl/syracuse/collaboration/syracuse/CAdxWebServiceXmlCC?wsdl',
+  _includesWsdl: [],
+  WSDL_CACHE: {
+    'http://srvx3v12h.formula.it:8124/soap-wsdl/syracuse/collaboration/syracuse/CAdxWebServiceXmlCC?wsdl': [Circular *1]
+  },
+  _originalIgnoredNamespaces: undefined,
+  options: {
+    ignoredNamespaces: [ 'targetNamespace', 'typedNamespace' ],
+    forceSoapVersion: undefined,
+    valueKey: '$value',
+    xmlKey: '$xml',
+    wsdl_headers: undefined,
+    wsdl_options: undefined,
+    ignoreBaseNameSpaces: false
+  },
+  isLoaded: true,
+  definitions: Definitions {
+    nsName: 'wsdl:definitions',
+    prefix: 'wsdl',
+    name: 'definitions',
+    nsURI: '',
+    parent: null,
+    children: [
+      [Types],   [Message],  [Message],
+      [Message], [Message],  [Message],
+      [Message], [Message],  [Message],
+      [Message], [Message],  [Message],
+      [Message], [Message],  [Message],
+      [Message], [Message],  [Message],
+      [Message], [Message],  [Message],
+      [Message], [Message],  [Message],
+      [Message], [PortType], [Binding],
+      [Service]
+    ],
+    xmlns: {
+      apachesoap: 'http://xml.apache.org/xml-soap',
+      wss: 'http://www.adonix.com/WSS',
+      intf: 'http://www.adonix.com/WSS',
+      soapenc: 'http://schemas.xmlsoap.org/soap/encoding/',
+      wsdl: 'http://schemas.xmlsoap.org/wsdl/',
+      wsdlsoap: 'http://schemas.xmlsoap.org/wsdl/soap/',
+      xsd: 'http://www.w3.org/2001/XMLSchema',
+      '': 'http://www.w3.org/2001/XMLSchema'
+    },
+    valueKey: '$value',
+    xmlKey: '$xml',
+    ignoredNamespaces: [ 'targetNamespace', 'typedNamespace' ],
+    forceSoapVersion: undefined,
+    '$targetNamespace': 'http://www.adonix.com/WSS',
+    targetNamespace: 'http://www.adonix.com/WSS',
+    messages: {
+      queryRequest: [Message],
+      insertLinesResponse: [Message],
+      getDataXmlSchemaResponse: [Message],
+      actionObjectKeysResponse: [Message],
+      deleteRequest: [Message],
+      runRequest: [Message],
+      runResponse: [Message],
+      queryResponse: [Message],
+      insertLinesRequest: [Message],
+      getDescriptionResponse: [Message],
+      deleteLinesRequest: [Message],
+      getDataXmlSchemaRequest: [Message],
+      actionObjectRequest: [Message],
+      modifyRequest: [Message],
+      saveResponse: [Message],
+      getDescriptionRequest: [Message],
+      actionObjectKeysRequest: [Message],
+      deleteLinesResponse: [Message],
+      actionObjectResponse: [Message],
+      deleteResponse: [Message],
+      saveRequest: [Message],
+      readRequest: [Message],
+      readResponse: [Message],
+      modifyResponse: [Message]
+    },
+    portTypes: { CAdxWebServiceXmlCC: [PortType] },
+    bindings: { CAdxWebServiceXmlCCSoapBinding: [Binding] },
+    services: { CAdxWebServiceXmlCCService: [Service] },
+    schemas: { 'http://www.adonix.com/WSS': [Schema] }
+  },
+  xml: '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<wsdl:definitions targetNamespace="http://www.adonix.com/WSS" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wss="http://www.adonix.com/WSS" xmlns:intf="http://www.adonix.com/WSS"\n' +
+    '\txmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">\t<!--WSDL created by Apache Axis version: 1.4 Built on Apr 22, 2006 (06:55:48 PDT) -->\n' +
+    '\t<wsdl:types>\n' +
+    '\t\t<schema targetNamespace="http://www.adonix.com/WSS" xmlns="http://www.w3.org/2001/XMLSchema">\n' +
+    '\t\t\t<import namespace="http://schemas.xmlsoap.org/soap/encoding/" />\n' +
+    '\t\t\t<complexType name="CAdxCallContext">\n' +
+    '\t\t\t\t<sequence>\n' +
+    '\t\t\t\t\t<element name="codeLang" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t\t<element name="poolAlias" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t\t<element name="poolId" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t\t<element name="requestConfig" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t</sequence>\n' +
+    '\t\t\t</complexType>\n' +
+    '\t\t\t<complexType name="CAdxMessage">\n' +
+    '\t\t\t\t<sequence>\n' +
+    '\t\t\t\t\t<element name="message" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t\t<element name="type" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t</sequence>\n' +
+    '\t\t\t</complexType>\n' +
+    '\t\t\t<complexType name="ArrayOfCAdxMessage">\n' +
+    '\t\t\t\t<complexContent>\n' +
+    '\t\t\t\t\t<restriction base="soapenc:Array">\n' +
+    '\t\t\t\t\t\t<attribute ref="soapenc:arrayType" wsdl:arrayType="wss:CAdxMessage[]" />\n' +
+    '\t\t\t\t\t</restriction>\n' +
+    '\t\t\t\t</complexContent>\n' +
+    '\t\t\t</complexType>\n' +
+    '\t\t\t<complexType name="CAdxTechnicalInfos">\n' +
+    '\t\t\t\t<sequence>\n' +
+    '\t\t\t\t\t<element name="busy" type="xsd:boolean" />\n' +
+    '\t\t\t\t\t<element name="changeLanguage" type="xsd:boolean" />\n' +
+    '\t\t\t\t\t<element name="changeUserId" type="xsd:boolean" />\n' +
+    '\t\t\t\t\t<element name="flushAdx" type="xsd:boolean" />\n' +
+    '\t\t\t\t\t<element name="loadWebsDuration" type="xsd:double" />\n' +
+    '\t\t\t\t\t<element name="nbDistributionCycle" type="xsd:int" />\n' +
+    '\t\t\t\t\t<element name="poolDistribDuration" type="xsd:double" />\n' +
+    '\t\t\t\t\t<element name="poolEntryIdx" type="xsd:int" />\n' +
+    '\t\t\t\t\t<element name="poolExecDuration" type="xsd:double" />\n' +
+    '\t\t\t\t\t<element name="poolRequestDuration" type="xsd:double" />\n' +
+    '\t\t\t\t\t<element name="poolWaitDuration" type="xsd:double" />\n' +
+    '\t\t\t\t\t<element name="processReport" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t\t<element name="processReportSize" type="xsd:int" />\n' +
+    '\t\t\t\t\t<element name="reloadWebs" type="xsd:boolean" />\n' +
+    '\t\t\t\t\t<element name="resumitAfterDBOpen" type="xsd:boolean" />\n' +
+    '\t\t\t\t\t<element name="rowInDistribStack" type="xsd:int" />\n' +
+    '\t\t\t\t\t<element name="totalDuration" type="xsd:double" />\n' +
+    '\t\t\t\t\t<element name="traceRequest" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t\t<element name="traceRequestSize" type="xsd:int" />\n' +
+    '\t\t\t\t</sequence>\n' +
+    '\t\t\t</complexType>\n' +
+    '\t\t\t<complexType name="CAdxResultXml">\n' +
+    '\t\t\t\t<sequence>\n' +
+    '\t\t\t\t\t<element name="messages" nillable="true" type="wss:ArrayOfCAdxMessage" />\n' +
+    '\t\t\t\t\t<element name="resultXml" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t\t<element name="status" type="xsd:int" />\n' +
+    '\t\t\t\t\t<element name="technicalInfos" nillable="true" type="wss:CAdxTechnicalInfos" />\n' +
+    '\t\t\t\t</sequence>\n' +
+    '\t\t\t</complexType>\n' +
+    '\t\t\t<complexType name="CAdxParamKeyValue">\n' +
+    '\t\t\t\t<sequence>\n' +
+    '\t\t\t\t\t<element name="key" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t\t<element name="value" nillable="true" type="xsd:string" />\n' +
+    '\t\t\t\t</sequence>\n' +
+    '\t\t\t</complexType>\n' +
+    '\t\t\t<complexType name="ArrayOfCAdxParamKeyValue">\n' +
+    '\t\t\t\t<complexContent>\n' +
+    '\t\t\t\t\t<restriction base="soapenc:Array">\n' +
+    '\t\t\t\t\t\t<attribute ref="soapenc:arrayType" wsdl:arrayType="wss:CAdxParamKeyValue[]" />\n' +
+    '\t\t\t\t\t</restriction>\n' +
+    '\t\t\t\t</complexContent>\n' +
+    '\t\t\t</complexType>\n' +
+    '\t\t\t<complexType name="ArrayOf_xsd_string">\n' +
+    '\t\t\t\t<complexContent>\n' +
+    '\t\t\t\t\t<restriction base="soapenc:Array">\n' +
+    '\t\t\t\t\t\t<attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:string[]" />\n' +
+    '\t\t\t\t\t</restriction>\n' +
+    '\t\t\t\t</complexContent>\n' +
+    '\t\t\t</complexType>\n' +
+    '\t\t</schema>\n' +
+    '\t</wsdl:types>\n' +
+    '\t<wsdl:message name="queryRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="objectKeys" type="wss:ArrayOfCAdxParamKeyValue" />\n' +
+    '\t\t<wsdl:part name="listSize" type="xsd:int" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="insertLinesResponse">\n' +
+    '\t\t<wsdl:part name="insertLinesReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="getDataXmlSchemaResponse">\n' +
+    '\t\t<wsdl:part name="getDataXmlSchemaReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="actionObjectKeysResponse">\n' +
+    '\t\t<wsdl:part name="actionObjectKeysReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="deleteRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="objectKeys" type="wss:ArrayOfCAdxParamKeyValue" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="runRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="inputXml" type="xsd:string" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="runResponse">\n' +
+    '\t\t<wsdl:part name="runReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="queryResponse">\n' +
+    '\t\t<wsdl:part name="queryReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="insertLinesRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="objectKeys" type="wss:ArrayOfCAdxParamKeyValue" />\n' +
+    '\t\t<wsdl:part name="blocKey" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="lineKey" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="lineXml" type="xsd:string" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="getDescriptionResponse">\n' +
+    '\t\t<wsdl:part name="getDescriptionReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="deleteLinesRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="objectKeys" type="wss:ArrayOfCAdxParamKeyValue" />\n' +
+    '\t\t<wsdl:part name="blocKey" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="lineKeys" type="wss:ArrayOf_xsd_string" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="getDataXmlSchemaRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="actionObjectRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="actionCode" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="objectXml" type="xsd:string" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="modifyRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="objectKeys" type="wss:ArrayOfCAdxParamKeyValue" />\n' +
+    '\t\t<wsdl:part name="objectXml" type="xsd:string" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="saveResponse">\n' +
+    '\t\t<wsdl:part name="saveReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="getDescriptionRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="actionObjectKeysRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="actionCode" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="objectKeys" type="wss:ArrayOfCAdxParamKeyValue" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="deleteLinesResponse">\n' +
+    '\t\t<wsdl:part name="deleteLinesReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="actionObjectResponse">\n' +
+    '\t\t<wsdl:part name="actionObjectReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="deleteResponse">\n' +
+    '\t\t<wsdl:part name="deleteReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="saveRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="objectXml" type="xsd:string" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="readRequest">\n' +
+    '\t\t<wsdl:part name="callContext" type="wss:CAdxCallContext" />\n' +
+    '\t\t<wsdl:part name="publicName" type="xsd:string" />\n' +
+    '\t\t<wsdl:part name="objectKeys" type="wss:ArrayOfCAdxParamKeyValue" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="readResponse">\n' +
+    '\t\t<wsdl:part name="readReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:message name="modifyResponse">\n' +
+    '\t\t<wsdl:part name="modifyReturn" type="wss:CAdxResultXml" />\n' +
+    '\t</wsdl:message>\n' +
+    '\t<wsdl:portType name="CAdxWebServiceXmlCC">\n' +
+    '\t\t<wsdl:operation name="run" parameterOrder="callContext publicName inputXml">\n' +
+    '\t\t\t<wsdl:input message="wss:runRequest" name="runRequest" />\n' +
+    '\t\t\t<wsdl:output message="wss:runResponse" name="runResponse" />\n' +
+    '\t\t\t<wsdl:documentation>Run X3 sub program</wsdl:documentation>\n' +
+    '\t\t</wsdl:operation>\n' +
+    '\t\t<wsdl:operation name="save" parameterOrder="callContext publicName objectXml">\n' +
+    '\t\t\t<wsdl:input message="wss:saveRequest" name="saveRequest" />\n' +
+    '\t\t\t<wsdl:output message="wss:saveResponse" name="saveResponse" />\n' +
+    '\t\t\t<wsdl:documentation>Create X3 object</wsdl:documentation>\n' +
+    '\t\t</wsdl:operation>\n' +
+    '\t\t<wsdl:operation name="delete" parameterOrder="callContext publicName objectKeys">\n' +
+    '\t\t\t<wsdl:input message="wss:deleteRequest" name="deleteRequest" />\n' +
+    '\t\t\t<wsdl:output message="wss:deleteResponse" name="deleteResponse" />\n' +
+    '\t\t\t<wsdl:documentation>Delete X3 object</wsdl:documentation>\n' +
+    '\t\t</wsdl:operation>\n' +
+    '\t\t<wsdl:operation name="read" parameterOrder="callContext publicName objectKeys">\n' +
+    '\t\t\t<wsdl:input message="wss:readRequest" name="readRequest" />\n' +
+    '\t\t\t<wsdl:output message="wss:readResponse" name="readResponse" />\n' +
+    '\t\t\t<wsdl:documentation>Read X3 object</wsdl:documentation>\n' +
+    '\t\t</wsdl:operation>\n' +
+    '\t\t<wsdl:operation name="query" parameterOrder="callContext publicName objectKeys listSize">\n' +
+    '\t\t\t<wsdl:input message="wss:queryRequest" name="queryRequest" />\n' +
+    '\t\t\t<wsdl:output message="wss:queryResponse" name="queryResponse" />\n' +
+    '\t\t\t<wsdl:documentation>Get X3 objects list</wsdl:documentation>\n' +
+    '\t\t</wsdl:operation>\n' +
+    '\t\t<wsdl:operation name="getDescription'... 8951 more characters,
+  services: {
+    CAdxWebServiceXmlCCService: Service {
+      nsName: 'wsdl:service',
+      prefix: 'wsdl',
+      name: 'service',
+      nsURI: 'http://schemas.xmlsoap.org/wsdl/',
+      parent: [Definitions],
+      children: [Array],
+      xmlns: {},
+      valueKey: '$value',
+      xmlKey: '$xml',
+      ignoredNamespaces: [Array],
+      forceSoapVersion: undefined,
+      '$name': 'CAdxWebServiceXmlCCService',
+      ports: [Object],
+      targetNamespace: 'http://www.adonix.com/WSS'
+    }
+  },
+  xmlnsInEnvelope: ' xmlns:wss="http://www.adonix.com/WSS" xmlns:intf="http://www.adonix.com/WSS"'
+}
+Response Envelope: 
+<html><head><title></title></head><body><pre>{@callContext} is mandatory</pre></body></html>
+Result: 
+{"html":{"head":{},"body":{"pre":"{@callContext} is mandatory"}}}

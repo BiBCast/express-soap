@@ -1,5 +1,5 @@
 "use strict";
-import axios from "axios";
+let axios = require("axios");
 
 const url =
   "http://srvx3v12h.formula.it:8124/soap-wsdl/syracuse/collaboration/syracuse/CAdxWebServiceXmlCC?wsdl";
@@ -14,15 +14,17 @@ async function getUsers() {
     // 👇️ const data: GetUsersResponse
     const { data, status } = await axios.get(webApiUrl, {
       headers: {
-        Accept: "application/json",
+        Accept: "text/xml",
         credentials,
       },
     });
 
-    console.log(JSON.stringify(data, null, 4));
+    //console.log(JSON.stringify(data, null, 4));
 
     // 👇️ "response status is: 200"
-    console.log("response status is: ", status);
+    //console.log("response status is: ", status);
+
+    console.log(data);
 
     return data;
   } catch (error) {
